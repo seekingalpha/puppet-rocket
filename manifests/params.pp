@@ -6,6 +6,7 @@ class rocketchat::params {
   $manage_repos       = true
   $download_path      = '/tmp'
   $destination        = '/opt'
+  $bundle_url         = undef
   $package_ensure     = 'latest'
   $package_source     = undef
   $mongo_host         = 'localhost'

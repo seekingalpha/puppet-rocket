@@ -3,14 +3,23 @@ class rocketchat::install(
   $destination,
   $package_ensure,
   $package_source,
+  $bundle_url,
 ) {
   include wget
 
   $file_path = "${download_path}/rocket.tgz"
 
-  $source = $package_source ? {
-    undef   => "https://rocket.chat/releases/${package_ensure}/download",
-    default => "${package_source}/rocket.chat-${package_ensure}.tgz",
+  # The API for generating the URL to fetch has gone through some evolution.
+  # To ease the transition, support the different formats:
+  # - v1: specify just $package_ensure (an oddly-named release identifier)
+  # - v2: specify $package_source (a base URL) and $package_ensure
+  # - v3: specify $bundle_url (the full, final URL)
+  $source = $bundle_url ? {
+    default => $bundle_url,
+    undef   => $package_source ? {
+                 default => "${package_source}/rocket.chat-${package_ensure}.tgz",
+                 undef   => "https://rocket.chat/releases/${package_ensure}/download",
+               },
   }
 
   wget::fetch { 'Download stable Rocket.Chat package':
