@@ -10,10 +10,6 @@ class rocketchat::packages(
     before     => Exec['npm install']
   }
 
-  package { 'curl':
-    ensure => installed,
-  }
-
   package { 'graphicsmagick':
     ensure => installed,
   }
