@@ -33,7 +33,6 @@ describe 'rocketchat::packages' do
         end
 
         it { is_expected.to contain_class('nodejs').that_comes_before("Exec[npm install]")}
-        it { is_expected.to contain_package('curl') }
         it { is_expected.to contain_package('graphicsmagick') }
         it { is_expected.to contain_package('build-essential') }
       end
