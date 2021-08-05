@@ -8,6 +8,7 @@ class rocketchat::service (
   $destination,
   $mongo_port,
   $mongo_replset,
+  $mongo_native_oplog,
   $authsource,
   $instance_count = 1,
   $instance_ip = undef,

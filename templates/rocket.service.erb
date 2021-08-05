@@ -21,6 +21,9 @@ Environment=MONGO_URL=mongodb://<%= @mongo_host%>:<%= @mongo_port%>/<%= @databas
 Environment=ROOT_URL=<%= @root_url %>
 <%- if @mongo_replset -%>
 Environment=MONGO_OPLOG_URL=mongodb://<%= @mongo_host%>:<%= @mongo_port%>/local<%= authstring %><%= replstring %>
+<%- if @mongo_native_oplog -%>
+Environment=USE_NATIVE_OPLOG=true
+<%- end -%>
 <%- end -%>
 
 [Install]

@@ -12,6 +12,7 @@ class rocketchat::params {
   $mongo_host         = 'localhost'
   $mongo_port         = 27017
   $mongo_replset      = undef
+  $mongo_native_oplog = false
   $authsource         = undef
   $nodejs_version     = '4.x'
   $nodejs_deps        = true
