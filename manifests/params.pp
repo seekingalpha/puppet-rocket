@@ -4,6 +4,7 @@ class rocketchat::params {
   $max_old_space_size = 1423
   $verbose            = false
   $manage_repos       = true
+  $mongo_version      = '5.0'
   $download_path      = '/tmp'
   $destination        = '/opt'
   $package_ensure     = 'latest'

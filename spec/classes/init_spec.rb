@@ -22,7 +22,8 @@ describe 'rocketchat' do
           is_expected.to contain_class('rocketchat::database').with(
             'port'         => '27017',
             'verbose'      => 'false',
-            'manage_repos' => 'true'
+            'manage_repos' => 'true',
+            'version' => '5.0'
            )
         end
 

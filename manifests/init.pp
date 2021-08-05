@@ -29,6 +29,7 @@ class rocketchat (
   $nodejs_version     = $rocketchat::params::nodejs_version,
   $nodejs_deps        = $rocketchat::params::nodejs_deps,
   $manage_repos       = $rocketchat::params::manage_repos,
+  $mongo_version      = $rocketchat::params::mongo_version,
   $verbose            = $rocketchat::params::verbose,
 ) inherits rocketchat::params {
 
@@ -42,6 +43,7 @@ class rocketchat (
       port         => $mongo_port,
       verbose      => $verbose,
       manage_repos => $manage_repos,
+      version      => $mongo_version,
       require      => Class['rocketchat::packages'],
       before       => Class['rocketchat::install'],
     }

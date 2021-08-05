@@ -7,6 +7,7 @@ describe 'rocketchat::database' do
       port => 27017,
       verbose => true,
       manage_repos => true,
+      version => '5.0',
 }
 
    EOS
