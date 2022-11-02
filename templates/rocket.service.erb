@@ -17,10 +17,10 @@ StandardError=syslog
 SyslogIdentifier=rocket.chat
 Environment=INSTANCE_IP=<%= @instance_ip || @ipaddress %>
 Environment=PORT=<%= @instance_count == 1 ? @port : '%i' %>
-Environment=MONGO_URL=mongodb://<%= @mongo_host%>:<%= @mongo_port%>/<%= @database_name%><%= authstring %><%= replstring %>
+Environment=MONGO_URL=mongodb+srv://<%= @mongo_host%>/<%= @database_name%><%= authstring %><%= replstring %>&retryWrites=true&w=majority
 Environment=ROOT_URL=<%= @root_url %>
 <%- if @mongo_replset -%>
-Environment=MONGO_OPLOG_URL=mongodb://<%= @mongo_host%>:<%= @mongo_port%>/local<%= authstring %><%= replstring %>
+Environment=MONGO_OPLOG_URL=mongodb+srv://<%= @mongo_host%>/local<%= authstring %><%= replstring %>&retryWrites=true&w=majority
 <%- if @mongo_native_oplog -%>
 Environment=USE_NATIVE_OPLOG=true
 <%- end -%>
