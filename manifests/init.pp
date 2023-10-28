@@ -28,6 +28,7 @@ class rocketchat (
   $mongo_native_oplog = $rocketchat::params::mongo_native_oplog,
   $authsource         = $rocketchat::params::authsource,
   $nodejs_version     = $rocketchat::params::nodejs_version,
+  $nodejs_source     = $rocketchat::params::nodejs_source,
   $nodejs_deps        = $rocketchat::params::nodejs_deps,
   $manage_repos       = $rocketchat::params::manage_repos,
   $mongo_version      = $rocketchat::params::mongo_version,
@@ -36,6 +37,7 @@ class rocketchat (
 
   class { 'rocketchat::packages':
     nodejs_version => $nodejs_version,
+    nodejs_source => $nodejs_source,
     nodejs_deps    => $nodejs_deps
   }
 
