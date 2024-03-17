@@ -12,8 +12,9 @@ ExecStart=/bin/sh -e -c 'AUTOUPDATE_VERSION=$(md5sum /opt/rocket-chat/bundle/sta
 Restart=always
 # Restart service after 10 seconds if node service crashes
 RestartSec=10
-StandardOutput=syslog
-StandardError=syslog
+LogsDirectory=rocketchat
+StandardOutput=append:/var/log/rocketchat/out.log
+StandardError=append:/var/log/rocketchat/err.log
 SyslogIdentifier=rocket.chat
 Environment=INSTANCE_IP=<%= @instance_ip || @ipaddress %>
 Environment=PORT=<%= @instance_count == 1 ? @port : '%i' %>
