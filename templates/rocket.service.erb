@@ -8,7 +8,7 @@ Description=Rocket.Chat service
 [Service]
 Type=forking
 <%#- Wait for the forked process to listen on a socket and make sure it is still alive -%>
-ExecStart=/bin/sh -e -c 'AUTOUPDATE_VERSION=$(md5sum /opt/rocket-chat/bundle/star.json) /usr/local/bin/node --max_old_space_size=<%= @max_old_space_size %> <%= @destination %>/bundle/main.js & while ! lsof -iTCP -sTCP:LISTEN -a -p $!; do kill -0 $!; sleep 1; done'
+ExecStart=/bin/sh -e -c '/usr/local/bin/node --max_old_space_size=<%= @max_old_space_size %> <%= @destination %>/bundle/main.js & while ! lsof -iTCP -sTCP:LISTEN -a -p $!; do kill -0 $!; sleep 1; done'
 Restart=always
 # Restart service after 10 seconds if node service crashes
 RestartSec=10
