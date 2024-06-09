@@ -18,13 +18,17 @@ StandardError=append:/var/log/rocketchat/err.log
 SyslogIdentifier=rocket.chat
 Environment=INSTANCE_IP=<%= @instance_ip || @ipaddress %>
 Environment=PORT=<%= @instance_count == 1 ? @port : '%i' %>
-Environment=MONGO_URL=mongodb+srv://<%= @mongo_host%>/<%= @database_name%><%= authstring %><%= replstring %>&retryWrites=true&w=majority
+Environment=MONGO_URL=mongodb+srv://<%= @mongo_host %>/<%= @database_name %><%= authstring %><%= replstring %>&retryWrites=true&w=majority
 Environment=ROOT_URL=<%= @root_url %>
 <%- if @mongo_replset -%>
-Environment=MONGO_OPLOG_URL=mongodb+srv://<%= @mongo_host%>/local<%= authstring %><%= replstring %>&retryWrites=true&w=majority
+Environment=MONGO_OPLOG_URL=mongodb+srv://<%= @mongo_host %>/local<%= authstring %><%= replstring %>&retryWrites=true&w=majority
 <%- if @mongo_native_oplog -%>
 Environment=USE_NATIVE_OPLOG=true
 <%- end -%>
+<%- end -%>
+<%- if @speakeasy_http_header_name && @speakeasy_http_header_value -%>
+Environment=SPEAKEASY_HTTP_HEADER_NAME=<%= @speakeasy_http_header_name %>
+Environment=SPEAKEASY_HTTP_HEADER_VALUE=<%= @speakeasy_http_header_value %>
 <%- end -%>
 
 [Install]
