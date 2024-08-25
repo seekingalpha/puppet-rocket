@@ -30,6 +30,8 @@ Environment=USE_NATIVE_OPLOG=true
 Environment=SPEAKEASY_HTTP_HEADER_NAME=<%= @speakeasy_http_header_name %>
 Environment=SPEAKEASY_HTTP_HEADER_VALUE=<%= @speakeasy_http_header_value %>
 <%- end -%>
+Environment=LOG_REST_PAYLOAD=true
+Environment=LOG_METHOD_PAYLOAD=true
 
 [Install]
 WantedBy=multi-user.target
