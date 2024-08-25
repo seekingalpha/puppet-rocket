@@ -35,7 +35,8 @@ class rocketchat::service (
     # compatibility.
     file { '/etc/systemd/system/rocket.service':
       ensure  => 'file',
-      content => template("${module_name}/rocket.service.erb")
+      content => template("${module_name}/rocket.service.erb"),
+      notify  => Systemd_refresh["rocket.service"],
     }
     service { 'rocket':
       ensure  => 'running',
@@ -67,7 +68,8 @@ class rocketchat::service (
 
     file { '/etc/systemd/system/rocket@.service':
       ensure  => 'file',
-      content => template("${module_name}/rocket.service.erb")
+      content => template("${module_name}/rocket.service.erb"),
+      notify  => Systemd_refresh["rocket@*.service"],
     }
   }
 
