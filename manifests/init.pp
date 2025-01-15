@@ -35,6 +35,7 @@ class rocketchat (
   $verbose            = $rocketchat::params::verbose,
   $speakeasy_http_header_name = undef,
   $speakeasy_http_header_value = undef,
+  $slack_token        = undef,
 ) inherits rocketchat::params {
 
   class { 'rocketchat::packages':
@@ -73,8 +74,9 @@ class rocketchat (
     database_name      => $database_name,
     root_url           => $root_url,
     destination        => $destination,
-    speakeasy_http_header_name   => $speakeasy_http_header_name,
+    speakeasy_http_header_name  => $speakeasy_http_header_name,
     speakeasy_http_header_value => $speakeasy_http_header_value,
+    slack_token        => $slack_token,
     require            => Class['rocketchat::install']
   }
 }

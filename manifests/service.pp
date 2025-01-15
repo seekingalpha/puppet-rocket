@@ -19,6 +19,7 @@ class rocketchat::service (
   $max_old_space_size = 1423,
   $speakeasy_http_header_name = undef,
   $speakeasy_http_header_value = undef,
+  $slack_token = undef,
 ) {
 
   if ($mongo_host == 'localhost') {

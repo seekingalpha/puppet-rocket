@@ -30,6 +30,9 @@ Environment=USE_NATIVE_OPLOG=true
 Environment=SPEAKEASY_HTTP_HEADER_NAME=<%= @speakeasy_http_header_name %>
 Environment=SPEAKEASY_HTTP_HEADER_VALUE=<%= @speakeasy_http_header_value %>
 <%- end -%>
+<%- if @slack_token -%>
+Environment=SLACK_TOKEN=<%= @slack_token %>
+<%- end -%>
 
 [Install]
 WantedBy=multi-user.target
