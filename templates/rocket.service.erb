@@ -33,6 +33,11 @@ Environment=SPEAKEASY_HTTP_HEADER_VALUE=<%= @speakeasy_http_header_value %>
 <%- if @slack_token -%>
 Environment=SLACK_TOKEN=<%= @slack_token %>
 <%- end -%>
+<%- if @log_api_payload -%>
+Environment=LOG_METHOD_PAYLOAD=true
+Environment=LOG_REST_PAYLOAD=true
+<%- end -%>
+
 
 [Install]
 WantedBy=multi-user.target

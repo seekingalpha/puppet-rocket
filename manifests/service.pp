@@ -20,6 +20,7 @@ class rocketchat::service (
   $speakeasy_http_header_name = undef,
   $speakeasy_http_header_value = undef,
   $slack_token = undef,
+  $log_api_payload = false,
 ) {
 
   if ($mongo_host == 'localhost') {
