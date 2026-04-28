@@ -37,6 +37,9 @@ Environment=SLACK_TOKEN=<%= @slack_token %>
 Environment=LOG_METHOD_PAYLOAD=true
 Environment=LOG_REST_PAYLOAD=true
 <%- end -%>
+<%- if @create_tokens_for_users_secret -%>
+Environment=CREATE_TOKENS_FOR_USERS_SECRET=<%= @create_tokens_for_users_secret %>
+<%- end -%>
 
 
 [Install]
